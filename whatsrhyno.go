@@ -1,5 +1,4 @@
-// gowa x whatsmeow
-package gowa
+package whatsrhyno
 
 import (
 	"context"

@@ -1,4 +1,4 @@
-module github.com/amiruldev20/gowa
+module go.ramdanhere.dev/whatsrhyno
 
 go 1.18
 
