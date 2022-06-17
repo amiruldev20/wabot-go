@@ -1,19 +1,3 @@
-// Copyright 2022 Ade M Ramdani <ramdanhere04@gmail.com>
-// This file is part of whatsrhyno
-//
-// whatsrhyno is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// whatsrhyno is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with whatsrhyno.  If not, see <http://www.gnu.org/licenses/>.
-
 package main
 
 import (
@@ -32,20 +16,20 @@ panic(err)
 }
 
 // before adding some route, we need to specify prefix to identify command from the message.
-client.SetCommandPrefix("")
+client.SetCommandPrefix(".")
 
 // Initialize the message router.
 r := &router.Route{}
 
-// Add the ping command to the router.
-r.Description = "Send ping message" // set the route description.
-//r.Use(OnlyGroup)                    // use the OnlyGroup middleware.
-r.On("tes", PingHandler)          
-r.On("menu", menu)
-r.On("ex", ex)
-r.On("args", ex)
+r.Description = "description command"
 
-// serve the ping command.
+//r.Use(OnlyGroup)      
+// only group
+
+//-- COMMAND --//
+r.On("tes", tes)          
+r.On("exec", ex)
+r.On("args", ex)
 
 // Send the router to the client.
 evtHandler := r.EventHandler(client)
@@ -58,34 +42,8 @@ panic(err)
 }
 }
 
-// tes
-
-// PingHandler is a handler for the ping command.
-func PingHandler(ctx *router.Context) {
+func tes(ctx *router.Context) {
 ctx.Reply("halo " + ctx.Msg.Info.PushName)
-}
-
-//-- func menu
-func menu(ctx *router.Context){
-renz := ctx.Msg.Info
-ctx.Reply(`Halo, *`+renz.PushName+`*
-berikut list menu yang tersedia
-
-*DETAIL BOT*
-Name: *GO-WA BOT*
-Language: *GO*
-Library: *Whatsmeow*
-Database: *NoSQL*
-
-*-= MAIN MENU =-*
-• .menu
-• .about
-• .source`)
-}
-
-//-- func sticker
-func sticker(ctx *router.Context){
-
 }
 
 //-- func exec
