@@ -1,8 +1,11 @@
-
+// MYWA BOT GOLANG
+// LIBRARY WHATSMEOW
+// MADE BY AMIRUL DEV
 package main
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 	"log"
 	"os"
@@ -25,12 +28,16 @@ import (
 
 func main() {
 	dbLog := waLog.Stdout("Database", "ERROR", true)
-	// Make sure you add appropriate DB connector imports, e.g. github.com/mattn/go-sqlite3 for SQLite
-	container, err := sqlstore.New("sqlite3", "file:sessions.db?_foreign_keys=on", dbLog)
+	dxz, err := base64.StdEncoding.DecodeString("TVlXQSBCT1Q=")
+	if err != nil {
+		panic("malformed input")
+		log.Println(dxz)
+	}
+	container, err := sqlstore.New("sqlite3", "file:system/session/mywabot.db?_foreign_keys=on", dbLog)
 	if err != nil {
 		panic(err)
 	}
-	// If you want multiple sessions, remember their JIDs and use .GetDevice(jid) or .GetAllDevices() instead.
+
 	deviceStore, err := container.GetFirstDevice()
 	if err != nil {
 		panic(err)
@@ -52,10 +59,15 @@ func main() {
 			if evt.Event == "code" {
 				// Render the QR code here
 				qrterminal.GenerateHalfBlock(evt.Code, qrterminal.L, os.Stdout)
-				// or just manually `echo 2@... | qrencode -t ansiutf8` in a terminal
-				log.Println("Please Scan")
+				dxz, err := base64.StdEncoding.DecodeString("TWFkZSBieSBBbWlydWwgRGV2LiBmb2xsb3cgSUcgQGFtaXJ1bC5kZXY=")
+				if err != nil {
+					panic("malformed input")
+				}
+				log.Println(string(dxz))
+
+				log.Println("Silahkan scan qr...")
 			} else {
-				log.Println("Succes Login")
+				log.Println("Login success...")
 			}
 		}
 	} else {
@@ -77,10 +89,14 @@ func main() {
 
 func init() {
 	ascii := figlet4go.NewAsciiRender()
-	renderStr, _ := ascii.Render("MYWA BOT")
+	dxz, err := base64.StdEncoding.DecodeString("TVlXQSBCT1Q=")
+	if err != nil {
+		panic("malformed input")
+	}
+	renderStr, _ := ascii.Render(string(dxz))
 	// Set Browser
 	store.DeviceProps.PlatformType = waProto.DeviceProps_SAFARI.Enum()
-	store.DeviceProps.Os = proto.String("MYWA BOT")
+	store.DeviceProps.Os = proto.String(string(dxz))
 	// Print Banner
 	fmt.Print(renderStr)
 }
