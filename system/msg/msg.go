@@ -1,9 +1,7 @@
-
 package message
 
 import (
 	"fmt"
-	"os"
 	"os/exec"
 	"strings"
 
@@ -48,22 +46,6 @@ func Msg(client *whatsmeow.Client, msg *events.Message) {
 	switch command {
 	case "bot":
 		zx.Reply(`Bot aktif *` + pushName + `*`)
-	case prefix + "sc":
-	case prefix + "script":
-		buttons := []*waProto.HydratedTemplateButton{
-			{
-				HydratedButton: &waProto.HydratedTemplateButton_UrlButton{
-					UrlButton: &waProto.HydratedURLButton{
-						DisplayText: proto.String("SALIN LINK"),
-						Url:         proto.String("https://www.whatsapp.com/otp/copy/https://github.com/amiruldev20/mywabot-go"),
-					},
-				},
-			},
-		}
-		zx.Hydrated(from, `Hai *`+pushName+`*
-bot ini menggunakan bahasa pemrograman Golang. dan dijalankan pada vps.
-link sc ada dibawah`, "Library : Whatsmeow", buttons)
-	// exec 1
 	case ">":
 		if !isOwner {
 			zx.Reply(helper.Own())
@@ -94,14 +76,6 @@ link sc ada dibawah`, "Library : Whatsmeow", buttons)
 			},
 		}
 		zx.Hydrated(from, helper.Menu(pushName, prefix), "Library : Whatsmeow", buttons)
-
-		//-- ping
-	case prefix + "ping":
-		host, err := os.Hostname()
-		if err != nil {
-			panic(err)
-		}
-		zx.Reply(`Hostname: ` + host + `.`)
 
 	//-- get link gc
 	case prefix + "linkgc":
