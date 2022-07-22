@@ -95,7 +95,7 @@ func init() {
 	}
 	renderStr, _ := ascii.Render(string(dxz))
 	// Set Browser
-	store.DeviceProps.PlatformType = waProto.DeviceProps_SAFARI.Enum()
+	store.DeviceProps.PlatformType = waProto.DeviceProps_OHANA.Enum()
 	store.DeviceProps.Os = proto.String(string(dxz))
 	// Print Banner
 	fmt.Print(renderStr)
