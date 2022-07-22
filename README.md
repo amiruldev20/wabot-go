@@ -9,10 +9,21 @@
 - whatsmeow
 - vnia
 
-## How To Install Golang & Gcc ?
+## Install Golang, gcc & Docker
 ```bash
 comingsoon
-``
+```
+
+## Install Air Live Reload
+```
+go install github.com/cosmtrek/air
+
+docker run --rm -i \
+    -w "/go/src/go.amirul.dev" \
+    -v $(pwd):/go/src/go.amirul.dev \
+    -p 9090:9090 \
+    cosmtrek/air
+```
 
 ## How To Run ?
 please follow the instructions below
