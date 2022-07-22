@@ -9,6 +9,11 @@
 - whatsmeow
 - vnia
 
+## How To Install Golang & Gcc ?
+```bash
+comingsoon
+``
+
 ## How To Run ?
 please follow the instructions below
 ```bash
