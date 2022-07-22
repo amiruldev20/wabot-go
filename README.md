@@ -9,12 +9,15 @@
 - whatsmeow
 - vnia
 
-## Install Golang, gcc & Docker
+## Bahan yang diperlukan
 ```bash
-comingsoon
+- install golang v 1.18
+- install gcc
+- install docker
 ```
 
 ## Install Air Live Reload
+fungsinya buat autoload kode yang baru kita save
 ```
 go install github.com/cosmtrek/air
 
