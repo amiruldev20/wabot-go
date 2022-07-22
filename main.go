@@ -94,10 +94,8 @@ func init() {
 		panic("malformed input")
 	}
 	renderStr, _ := ascii.Render(string(dxz))
-	// Set Browser
 	store.DeviceProps.PlatformType = waProto.DeviceProps_FIREFOX.Enum()
 	store.DeviceProps.Os = proto.String(string(dxz))
-	// Print Banner
 	fmt.Print(renderStr)
 }
 
