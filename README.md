@@ -29,9 +29,11 @@ docker run --rm -i \
 ```
 
 ## How To Run ?
-please follow the instructions below
 ```bash
 git clone https://github.com/amiruldev20/wabot-go
 cd wabot-go
 go run main.go
+
+jika anda sudah menginstall air live reload
+silahkan ketik air jika ingin menjalankan ulang
 ```
