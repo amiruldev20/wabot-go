@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
-
+        "context"
+	
 	"go.amirul.dev/system/help"
 	"go.amirul.dev/system/lib"
 	"google.golang.org/protobuf/proto"
@@ -35,6 +36,11 @@ func Msg(client *whatsmeow.Client, msg *events.Message) {
 	args := strings.Split(zx.GetCMD(), " ")
 	command := strings.ToLower(args[0])
 	query := strings.Join(args[1:], ` `)
+	extended := msg.Message.GetExtendedTextMessage()
+	quotedMsg := extended.GetContextInfo().GetQuotedMessage()
+	quotedImage := quotedMsg.GetImageMessage()
+	//quotedVideo := quotedMsg.GetVideoMessage()
+	//quotedSticker := quotedMsg.GetStickerMessage()
 	// Self
 
 	if self && !isOwner {
@@ -76,7 +82,17 @@ func Msg(client *whatsmeow.Client, msg *events.Message) {
 			},
 		}
 		zx.Hydrated(from, helper.Menu(pushName, prefix), "Library : Whatsmeow", buttons)
-
+case prefix + "sticker":
+		if quotedImage != nil {
+			data, _ := client.Download(quotedImage)
+			stc := zx.CreateStickerIMG(data)
+			client.SendMessage(context.Background(), from, "", stc)
+		} else if msg.Message.GetImageMessage() != nil {
+			data, _ := client.Download(msg.Message.GetImageMessage())
+			stc := zx.CreateStickerIMG(data)
+			client.SendMessage(context.Background(), from, "", stc)
+		}
+		
 	//-- get link gc
 	case prefix + "linkgc":
 		if !isGroup {
