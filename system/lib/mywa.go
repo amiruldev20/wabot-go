@@ -40,9 +40,9 @@ func (zx *renz) Reply(teks string) {
 	})
 }
 
-func (simp *SimpleImpl) CreateStickerIMG(data []byte) *waProto.Message {
-	RawPath := fmt.Sprintf("tmp/%s%s", simp.Msg.Info.ID, ".jpg")
-	ConvertedPath := fmt.Sprintf("tmp/sticker/%s%s", simp.Msg.Info.ID, ".webp")
+func (zx *renz) CreateStickerIMG(data []byte) *waProto.Message {
+	RawPath := fmt.Sprintf("tmp/%s%s", zx.Msg.Info.ID, ".jpg")
+	ConvertedPath := fmt.Sprintf("tmp/sticker/%s%s", zx.Msg.Info.ID, ".webp")
 	err := os.WriteFile(RawPath, data, 0600)
 	if err != nil {
 		fmt.Printf("Failed to save image: %v", err)
@@ -62,7 +62,7 @@ func (simp *SimpleImpl) CreateStickerIMG(data []byte) *waProto.Message {
 	if err != nil {
 		fmt.Printf("Failed to read %s: %s\n", ConvertedPath, err)
 	}
-	uploaded, err := simp.VClient.Upload(context.Background(), stc, whatsmeow.MediaImage)
+	uploaded, err := zx.RClient.Upload(context.Background(), stc, whatsmeow.MediaImage)
 	if err != nil {
 		fmt.Printf("Failed to upload file: %v\n", err)
 	}
@@ -76,9 +76,9 @@ func (simp *SimpleImpl) CreateStickerIMG(data []byte) *waProto.Message {
 			FileSha256:    uploaded.FileSHA256,
 			FileLength:    proto.Uint64(uint64(len(data))),
 			ContextInfo: &waProto.ContextInfo{
-				StanzaId:      &simp.Msg.Info.ID,
-				Participant:   proto.String(simp.Msg.Info.Sender.String()),
-				QuotedMessage: simp.Msg.Message,
+				StanzaId:      &zx.Msg.Info.ID,
+				Participant:   proto.String(zx.Msg.Info.Sender.String()),
+				QuotedMessage: zx.Msg.Message,
 			},
 		},
 	}
