@@ -1,11 +1,11 @@
 package message
 
 import (
+	"context"
 	"fmt"
 	"os/exec"
 	"strings"
-        "context"
-	
+
 	"go.amirul.dev/system/help"
 	"go.amirul.dev/system/lib"
 	"google.golang.org/protobuf/proto"
@@ -18,7 +18,7 @@ import (
 // Config
 var (
 	prefix = "."
-	self   = false
+	self   = true
 	owner  = "687852104"
 )
 
@@ -82,7 +82,8 @@ func Msg(client *whatsmeow.Client, msg *events.Message) {
 			},
 		}
 		zx.Hydrated(from, helper.Menu(pushName, prefix), "Library : Whatsmeow", buttons)
-case prefix + "sticker":
+
+	case prefix + "sticker", "s":
 		if quotedImage != nil {
 			data, _ := client.Download(quotedImage)
 			stc := zx.CreateStickerIMG(data)
@@ -92,7 +93,7 @@ case prefix + "sticker":
 			stc := zx.CreateStickerIMG(data)
 			client.SendMessage(context.Background(), from, "", stc)
 		}
-		
+
 	//-- get link gc
 	case prefix + "linkgc":
 		if !isGroup {
