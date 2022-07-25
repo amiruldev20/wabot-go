@@ -3,6 +3,14 @@ module go.amirul.dev
 go 1.18
 
 require (
+	github.com/mattn/go-sqlite3 v1.14.14
+	github.com/mdp/qrterminal v1.0.1
+	github.com/probandula/figlet4go v0.0.0-20190224160619-d6cef5b186ea
+	go.mau.fi/whatsmeow v0.0.0-20220629192020-6e4a9fb4bbe6
+	google.golang.org/protobuf v1.28.0
+)
+
+require (
 	filippo.io/edwards25519 v1.0.0 // indirect
 	github.com/cosmtrek/air v1.40.4 // indirect
 	github.com/creack/pty v1.1.11 // indirect
@@ -12,14 +20,9 @@ require (
 	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-isatty v0.0.12 // indirect
-	github.com/mattn/go-sqlite3 v1.14.14 // indirect
-	github.com/mdp/qrterminal v1.0.1 // indirect
 	github.com/pelletier/go-toml v1.8.1 // indirect
-	github.com/probandula/figlet4go v0.0.0-20190224160619-d6cef5b186ea // indirect
 	go.mau.fi/libsignal v0.0.0-20220628090436-4d18b66b087e // indirect
-	go.mau.fi/whatsmeow v0.0.0-20220629192020-6e4a9fb4bbe6 // indirect
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d // indirect
 	golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e // indirect
-	google.golang.org/protobuf v1.28.0 // indirect
 	rsc.io/qr v0.2.0 // indirect
 )
