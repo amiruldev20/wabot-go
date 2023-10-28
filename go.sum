@@ -29,8 +29,6 @@ github.com/probandula/figlet4go v0.0.0-20190224160619-d6cef5b186ea h1:1kkF0sPt3A
 github.com/probandula/figlet4go v0.0.0-20190224160619-d6cef5b186ea/go.mod h1:vw9/Y/BcPaFSLDhbxzdhj5sBhz1ZZFjwQvIYeogc7do=
 go.mau.fi/libsignal v0.0.0-20220628090436-4d18b66b087e h1:ByHDg+D+dMIGuBA2n+1xOUf4xr3FJFYg8yxl06s1YBE=
 go.mau.fi/libsignal v0.0.0-20220628090436-4d18b66b087e/go.mod h1:RCdzkTWSJv0AKGqurzPXJsEGIVMuQps3E/h7CMUPous=
-go.mau.fi/whatsmeow v0.0.0-20220629192020-6e4a9fb4bbe6 h1:/+d314pdhQufv8+3kka5vwh9p1mraLkN7D8eb9Z5o+0=
-go.mau.fi/whatsmeow v0.0.0-20220629192020-6e4a9fb4bbe6/go.mod h1:hsjqq2xLuoFew8vbsDCJcGf5EbXCRcR/yoQ+87w6m3k=
 golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d h1:sK3txAijHtOK88l68nt020reeT1ZdKLIYetKl95FzVY=
 golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d/go.mod h1:IxCIyHEi3zRg3s0A5j5BB6A9Jmi73HwBIUl50j+osU4=
 golang.org/x/sys v0.0.0-20191005200804-aed5e4c7ecf9/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=

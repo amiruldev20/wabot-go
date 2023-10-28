@@ -1,4 +1,4 @@
-module go.amirul.dev
+module github.com/amiruldev20/wabot-go
 
 go 1.18
 
@@ -6,7 +6,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.14
 	github.com/mdp/qrterminal v1.0.1
 	github.com/probandula/figlet4go v0.0.0-20190224160619-d6cef5b186ea
-	go.mau.fi/whatsmeow v0.0.0-20220629192020-6e4a9fb4bbe6
+	github.com/amiruldev20/waSocket v1.0.2
 	google.golang.org/protobuf v1.28.0
 )
 
