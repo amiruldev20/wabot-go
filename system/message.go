@@ -9,10 +9,11 @@
 # Thanks to: 
 # Vnia
 */
-package message
+package system
 
 import (
-	config "github.com/amiruldev20/config"
+	"mywa-bot/config"
+	"mywa-bot/system"
     "context"
     "fmt"
     //"os"
@@ -24,8 +25,6 @@ import (
     "net/url"
     "io/ioutil"
     "encoding/json"
-    "github.com/amiruldev20/wabot-go/help"
-    "github.com/amiruldev20/wabot-go/lib"
     // "google.golang.org/protobuf/proto"
 
     "github.com/amiruldev20/waSocket"
@@ -39,7 +38,7 @@ func delay(duration time.Duration) {
 
 func Msg(client * waSocket.Client, msg * events.Message) {
     // simple
-    sock: = lib.NewSimp(client, msg)
+    sock: = system.NewSimp(client, msg)
         // dll
     from: = msg.Info.Chat
     sender: = msg.Info.Sender.String()
@@ -75,7 +74,7 @@ func Msg(client * waSocket.Client, msg * events.Message) {
         case "*":
             sock.React("⏱️")
             if !isOwner {
-                sock.Reply(helper.Own())
+                sock.Reply(system.Own())
                 return
             }
 
@@ -97,11 +96,11 @@ func Msg(client * waSocket.Client, msg * events.Message) {
             /* shell */
         case "$":
             if !isOwner {
-                sock.Reply(helper.Own())
+                sock.Reply(system.Own())
                 return
             }
             if !isOwner {
-                sock.Reply(helper.Own())
+                sock.Reply(system.Own())
                 return
             }
             sock.React("⏱️")

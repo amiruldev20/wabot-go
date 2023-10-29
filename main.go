@@ -12,7 +12,7 @@
 package main
 
 import (
-    "config"
+    "mywa-bot/config"
     "context"
     "encoding/base64"
     "fmt"
@@ -20,7 +20,7 @@ import (
     "os"
     "os/signal"
     "syscall"
-    "github.com/amiruldev20/wabot-go/system/message"
+    "mywa-bot/system"
     "go"
     _ "github.com/mattn/go-sqlite3"
     "github.com/mdp/qrterminal"
@@ -138,7 +138,7 @@ func registerHandler(client * waSocket.Client) func(evt interface {}) {
     return func(evt interface {}) {
         switch v: = evt.(type) {
             case *events.Message:
-                go message.Msg(client, v)
+                go system.Msg(client, v)
                 break
         }
     }

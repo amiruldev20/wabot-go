@@ -1,4 +1,4 @@
-module github.com/amiruldev20/wabot-go
+module mywa-bot
 
 go 1.18
 

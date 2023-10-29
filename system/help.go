@@ -9,7 +9,7 @@
 # Thanks to: 
 # Vnia
 */
-package help
+package system
 
 func Menu(pushName string, prefix string) string {
     return `Hai, *` + pushName + `* 👋
