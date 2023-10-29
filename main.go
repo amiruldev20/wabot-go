@@ -12,7 +12,7 @@
 package main
 
 import (
-    config "github.com/amiruldev20/wabot-go/config"
+    "config"
     "context"
     "encoding/base64"
     "fmt"
